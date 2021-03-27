@@ -1,0 +1,20 @@
+version: "3"
+services:
+  sd_server:
+    container_name: sd_server
+    build: server
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - data-volume:/usr/share/nginx/html/data/
+  sd_pull_content:
+    container_name: sd_pc
+    build: pull_content
+    restart: always
+    volumes:
+      - data-volume:/data/
+
+volumes:
+  data-volume:
+

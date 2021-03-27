@@ -1,0 +1,9 @@
+version: "3"
+services:
+  sd_contentprovider:
+    container_name: sd_cp
+    build: contentprovider
+    restart: always
+    volumes:
+      - /nas/photo:/data
+
