@@ -1,0 +1,13 @@
+DEL 'smartdisplay:mq-hostname'
+DEL 'smartdisplay:mq-queuename'
+DEL 'smartdisplay:time-between-pictures'
+DEL 'smartdisplay:picture-dir-list'
+
+SET 'smartdisplay:mq-hostname' '192.168.178.1'
+SET 'smartdisplay:mq-queuename' 'smartdisplay'
+SET 'smartdisplay:time-between-pictures' 5
+SET 'smartdisplay:time-wait-for-nfs' 1
+
+LPUSH 'smartdisplay:picture-dir-list' '/data/pics1'
+LPUSH 'smartdisplay:picture-dir-list' '/data/pics2'
+
