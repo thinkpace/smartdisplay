@@ -31,7 +31,7 @@ Since this is all running in my local network, there is no security implemented 
 
 # Install
 
-* Adapt and import configuration to Redis (see [import_redis_data.sh](/import_redis_data.sh)
-* Configure a way to ensure contentprovider has access to your pictures (adapt [contentprovider/docker-compose.yaml](/contentprovider/docker-compose.yaml) if necessary)
-* Adapt picture size specified in [smartdisplay/server/html/index.html](/smartdisplay/server/html/index.html) to fit picture in your screen
+* Adapt and import configuration to Redis (see [import_redis_data.sh](/import_redis_data.sh)).
+* Configure a way to ensure contentprovider has access to your pictures (adapt [contentprovider/docker-compose.yaml](/contentprovider/docker-compose.yaml) if necessary).
+* Adapt picture size specified in [smartdisplay/server/html/index.html](/smartdisplay/server/html/index.html) to fit picture in your screen.
 
