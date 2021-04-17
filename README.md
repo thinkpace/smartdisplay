@@ -21,3 +21,17 @@ A docker container named "pull_content" (which also gets it's configuration from
 
 Since this is all running in my local network, there is no security implemented in any way. Please keep this in mind if you want to implement it yourself!
 
+# Dependencies
+
+* Some kind of display to show content.
+* Some pictures.
+* Some device(s) which can run docker.
+* An existing Redis instance.
+* An existing MQ instance.
+
+# Install
+
+* Adapt and import configuration to Redis (see [import_redis_data.sh](/import_redis_data.sh)
+* Configure a way to ensure contentprovider has access to your pictures (adapt [contentprovider/docker-compose.yaml](/contentprovider/docker-compose.yaml) if necessary)
+* Adapt picture size specified in [smartdisplay/server/html/index.html](/smartdisplay/server/html/index.html) to fit picture in your screen
+
