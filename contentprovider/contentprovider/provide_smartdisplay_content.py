@@ -9,7 +9,7 @@ import random
 import sys
 import redis
 
-r = redis.Redis(host='192.168.178.52', port=6379)
+r = redis.Redis(host='redis.home.familiebaus.de', port=6379)
 
 hostname = r.get('smartdisplay:mq-hostname').decode()
 print("MQ-Host: " + hostname)

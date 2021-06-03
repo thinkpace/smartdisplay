@@ -5,7 +5,7 @@ import json
 import base64
 import redis
 
-r = redis.Redis(host='192.168.178.52', port=6379)
+r = redis.Redis(host='redis.home.familiebaus.de', port=6379)
 
 hostname = r.get('smartdisplay:mq-hostname').decode()
 queue_name = r.get('smartdisplay:mq-queuename').decode()
