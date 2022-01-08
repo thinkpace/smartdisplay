@@ -19,4 +19,4 @@ Since this is all running in my local network, there is no security implemented 
 # Install
 
 * Adapt [sd_cp.py](contentprovider/sd_cp.py) by changing listed folder paths.
-* Execute docker-compose with [docker-compose.yaml](webserver/docker-compose.yaml).
+* Execute docker-compose with [docker-compose.yaml](docker-compose.yaml).
