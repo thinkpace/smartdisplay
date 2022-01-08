@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Smart Display</title>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function sleep(milliseconds) {
+            return new Promise(resolve => setTimeout(resolve, milliseconds));
+        }
+
+        function requestNextPicture() {
+            $.ajax({
+                url: "http://nas.home.familiebaus.de:4999/random_picture",
+                crossDomain: true,
+                success: function (result) {
+                    last_picture = $('#picture')[0].src;
+                    $('#picture')[0].src = 'data:image/jpeg;base64,' + result.content_base64;
+                }
+            });
+        }
+
+        function showLastPicture() {
+            $('#picture')[0].src = last_picture;
+        }
+
+        async function loop() {
+            while (true) {
+                requestNextPicture()
+                await sleep(60 * 1000);
+            }
+        }
+
+        async function initControlFunctions() {
+            await sleep(5 * 1000);
+
+            $('#picture')[0].onclick = function (event) {
+                if (event.clientX <= 600) {
+                    showLastPicture()
+                }
+                else {
+                    requestNextPicture()
+                }
+            }
+        }
+
+        var last_picture = null
+
+        loop()
+        initControlFunctions()
+    </script>
+</head>
+
+<body style="background-color: #000000;">
+    <div style="text-align: center;">
+        <img id="picture" style="max-width: 1260px; max-height: 780px">
+    </div>
+</body>
+
+</html>

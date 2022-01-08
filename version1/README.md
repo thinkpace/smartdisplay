@@ -1,6 +1,6 @@
 # Smartdisplay
 
-This is a private DIY project to create something like a smart Display. In it's current implementation, it just shows pictures from a specified storage. Earlier implementations had more features which are not maintained anymore.
+This is a private DIY project to create something like a smart display. In it's current implementation, it just shows pictures from a specified storage. Earlier implementations had more features which are not maintained anymore.
 
 This project targets specifically following topics:
 

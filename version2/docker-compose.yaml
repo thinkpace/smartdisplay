@@ -1,0 +1,8 @@
+version: "3"
+services:
+  sd_webserver:
+    container_name: sd_webserver
+    build: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
