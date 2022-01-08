@@ -11,7 +11,7 @@ This project targets specifically following topics:
 
 Following picture gives a rough overview about how it's working:
 
-![Overview](/overview.png)
+![Overview](overview.png)
 
 Pictures are stored on some kind of storage. A docker container named "contentprovider" pulls randomly pictures from this storages. It's currently not specified how this access is working, in my scenario I have a NAS and a Raspberry Pi which runs docker and has a NFS connection to this NAS. This contentprovider reads it's configuration from a existing Redis instance in my local network (not included in this project), pulls a picture and pushes it to an existing MQ (also not included in this project).
 

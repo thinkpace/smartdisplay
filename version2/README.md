@@ -4,7 +4,7 @@ This is a private DIY project to create something like a smart display. In it's 
 
 # How it's working?
 
-There is a Python script called sd_cp.py which is providing an endpoint to download pictures. An HTML file is using this endpoint to download and show a picture on a frequently basis.
+There is a python script called sd_cp.py which is providing an endpoint to download pictures. An HTML file is using this endpoint to download and show a picture on a frequently basis.
 
 # Security
 
@@ -18,6 +18,5 @@ Since this is all running in my local network, there is no security implemented 
 
 # Install
 
-* Adapt [sd_cp.py](version2/contentprovider/sd_cp.py) by changing listed folder paths.
-* Execute docker-compose with [docker-compose.yaml](version2/webserver/docker-compose.yaml).
-* Browse to your webserver.
+* Adapt [sd_cp.py](contentprovider/sd_cp.py) by changing listed folder paths.
+* Execute docker-compose with [docker-compose.yaml](webserver/docker-compose.yaml).
