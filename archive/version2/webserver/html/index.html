@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Smart Display</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="swiper-bundle.min.css" />
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background-color: #000000;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            background: #000000;
+        }
+
+        .swiper-slide img {
+            background-color: #000000;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+        function sleep(milliseconds) {
+            return new Promise(resolve => setTimeout(resolve, milliseconds));
+        }
+
+        function requestNextPicture(do_swipe) {
+            $.ajax({
+                url: picture_provider_url,
+                crossDomain: true,
+                success: function (result) {
+                    console.log('function requestNextPicture(do_swipe) --> success');
+
+                    swiper.appendSlide('<div class="swiper-slide"><img id="picture" style="max-width: 1260px; max-height: 780px;"></div>');
+                    number_of_slides++;
+                    $('.swiper-wrapper')[0].children[number_of_slides - 1].children[0].src = 'data:image/jpeg;base64,' + result.content_base64;
+                    if (do_swipe == true) {
+                        swiper.slideNext();
+                    }
+                    swiper.update();
+                }
+            });
+        }
+
+        function requestNextPictures(number_of_pictures) {
+            console.log('function requestNextPictures(number_of_pictures)');
+            for (let i = 0; i < number_of_pictures; i++) {
+                requestNextPicture(false);
+            }
+        }
+
+        function cleanOldPictures() {
+            console.log('function cleanOldPictures()');
+            while (swiper.activeIndex > number_of_old_pictures) {
+                swiper.removeSlide(0);
+                swiper.update();
+                number_of_slides--;
+            }
+        }
+
+        function preloadPictures() {
+            console.log('function preloadPictures()');
+            preloaded_pictures = number_of_slides - swiper.activeIndex
+            if (preloaded_pictures < number_of_preloaded_pictures) {
+                requestNextPictures(number_of_preloaded_pictures - preloaded_pictures)
+            }
+        }
+
+        async function loop() {
+            while (true) {
+                await sleep(number_of_seconds_between_switch * 1000);
+                requestNextPicture(true);
+            }
+        }
+
+        const picture_provider_url = "http://nas.home.familiebaus.de:4999/random_picture"
+        const number_of_seconds_between_switch = 60;
+        const number_of_preloaded_pictures = 5;
+        const number_of_old_pictures = 5;
+
+        var number_of_slides = 0;
+    </script>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper"></div>
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            on: {
+                init: function () {
+                    console.log('swiper Event init');
+                    requestNextPictures(number_of_preloaded_pictures)
+                },
+            },
+        });
+        swiper.on('slideChange', function () {
+            console.log('swiper Event slideChange');
+            cleanOldPictures();
+            preloadPictures();
+        });
+
+        loop()
+    </script>
+</body>
+
+</html>
