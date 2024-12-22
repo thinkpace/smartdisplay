@@ -1,0 +1,15 @@
+---
+- name: Create installation directory
+  file:
+    path: '{{ smartdisplay_client_path }}'
+    state: directory
+    owner: 'root'
+    group: 'root'
+    mode: 0775
+- name: Install Smartdisplay Client
+  ansible.builtin.copy:
+    src: 'smartdisplay.arm32'
+    dest: '{{ smartdisplay_client_path }}/smartdisplay.arm32'
+    owner: 'root'
+    group: 'root'
+    mode: 0775

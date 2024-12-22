@@ -2,3 +2,7 @@
   become: true
   roles:
     - install-server
+- hosts: smartdisplay_godot_client
+  become: true
+  roles:
+    - install-godot-client
