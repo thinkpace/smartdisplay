@@ -1,3 +1,4 @@
+ansible/roles/install-godot-client/files/smartdisplay.*
 ansible/roles/install-server/files/picture_paths.txt
 ansible/roles/install-server/vars/main.yml
 
