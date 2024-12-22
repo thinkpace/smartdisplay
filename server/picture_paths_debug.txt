@@ -1,0 +1,2 @@
+/path/to/debug/pictures/1
+/path/to/debug/pictures/2

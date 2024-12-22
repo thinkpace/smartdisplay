@@ -1,0 +1,4 @@
+- hosts: smartdisplay_server
+  become: true
+  roles:
+    - install-server

@@ -1,0 +1,32 @@
+---
+- name: Create installation directory
+  file:
+    path: '{{ smartdisplay_server_path }}'
+    state: directory
+    owner: '{{ smartdisplay_server_user }}'
+    group: '{{ smartdisplay_server_group }}'
+    mode: 0775
+- name: Install application
+  ansible.builtin.copy:
+    src: '../../../server/{{ item }}'
+    dest: '{{ smartdisplay_server_path }}/{{ item }}'
+    owner: '{{ smartdisplay_server_user }}'
+    group: '{{ smartdisplay_server_group }}'
+    mode: 0775
+  loop:
+     - 'sd_cp.py'
+     - 'requirements.txt'
+- name: Install app config
+  ansible.builtin.copy:
+    src: 'picture_paths.txt'
+    dest: '{{ smartdisplay_server_path }}/picture_paths.txt'
+    owner: '{{ smartdisplay_server_user }}'
+    group: '{{ smartdisplay_server_group }}'
+    mode: 0664
+- name: Copy docker-compose.yml
+  ansible.builtin.template:
+    src: start_cp.sh.j2
+    dest: '{{ smartdisplay_server_path }}/start_cp.sh'
+    owner: '{{ smartdisplay_server_user }}'
+    group: '{{ smartdisplay_server_group }}'
+    mode: 0775

@@ -1,0 +1,6 @@
+ansible/roles/install-server/files/picture_paths.txt
+ansible/roles/install-server/vars/main.yml
+
+server/.venv/
+server/sd_cp.log
+server/picture_paths.txt

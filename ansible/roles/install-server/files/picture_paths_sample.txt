@@ -1,0 +1,8 @@
+/path/to/pictures/1
+/path/to/pictures/2
+/path/to/pictures/3
+/path/to/pictures/4
+/path/to/pictures/5
+/path/to/pictures/6
+/path/to/pictures/7
+/path/to/pictures/8

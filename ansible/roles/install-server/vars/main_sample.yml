@@ -1,0 +1,4 @@
+---
+smartdisplay_server_path: '/path/to/smartdisplay/directory'
+smartdisplay_server_user: smartdisplay_user
+smartdisplay_server_group: smartdisplay_group
