@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://ci30aqbe14jg4"]
+
+[ext_resource type="Script" path="res://animator/fire_truck.gd" id="1_h021m"]
+[ext_resource type="Texture2D" uid="uid://bk68g0isoo4x8" path="res://assets/Fire_Truck_2_Going_Left_48x48.png" id="1_tyh02"]
+[ext_resource type="Texture2D" uid="uid://o4w28aymmxmk" path="res://assets/Fire_Truck_2_Going_Right_48x48.png" id="2_bdxtu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oewjm"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(0, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5s8f"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(480, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyhiu"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(960, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d1bj"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(1440, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imr6a"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(1920, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vik2m"]
+atlas = ExtResource("1_tyh02")
+region = Rect2(2400, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iahjm"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(0, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl8uw"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(480, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_875sv"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(960, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqywg"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(1440, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jj82"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(1920, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1o0d"]
+atlas = ExtResource("2_bdxtu")
+region = Rect2(2400, 0, 480, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_le4fq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oewjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5s8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyhiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d1bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imr6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vik2m")
+}],
+"loop": true,
+"name": &"going_left",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iahjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl8uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_875sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqywg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jj82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1o0d")
+}],
+"loop": true,
+"name": &"going_right",
+"speed": 10.0
+}]
+
+[node name="FireTruck" type="Node2D"]
+script = ExtResource("1_h021m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_le4fq")
+animation = &"going_left"
+autoplay = "going_left"
+frame_progress = 0.442

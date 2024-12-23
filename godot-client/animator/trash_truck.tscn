@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2ir7o88ods3h"]
+
+[ext_resource type="Texture2D" uid="uid://cqylbsxfqw76y" path="res://assets/Trash_Truck_48x48.png" id="1_5neqw"]
+[ext_resource type="Script" path="res://animator/trash_truck.gd" id="1_x6es6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rskt5"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(0, 485, 385, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmk28"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(385, 485, 385, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyjqk"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(770, 485, 385, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl34m"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(1155, 485, 385, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it0gg"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(1540, 485, 385, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuw80"]
+atlas = ExtResource("1_5neqw")
+region = Rect2(1925, 485, 385, 235)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0717v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rskt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmk28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyjqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl34m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it0gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuw80")
+}],
+"loop": true,
+"name": &"going_right",
+"speed": 5.0
+}]
+
+[node name="TrashTruck" type="Node2D"]
+script = ExtResource("1_x6es6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0717v")
+animation = &"going_right"

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3miuo2mlfchu"]
+
+[ext_resource type="Script" path="res://animator/unicorn.gd" id="1_768o2"]
+[ext_resource type="Texture2D" uid="uid://cseblaa57vuk8" path="res://assets/unicorn.png" id="1_yslng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3ru0"]
+atlas = ExtResource("1_yslng")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv6lt"]
+atlas = ExtResource("1_yslng")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o48gt"]
+atlas = ExtResource("1_yslng")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cenan"]
+atlas = ExtResource("1_yslng")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmj7x"]
+atlas = ExtResource("1_yslng")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj3w0"]
+atlas = ExtResource("1_yslng")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2ow2"]
+atlas = ExtResource("1_yslng")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmd1b"]
+atlas = ExtResource("1_yslng")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yacfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3ru0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv6lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o48gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cenan")
+}],
+"loop": true,
+"name": &"going_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmj7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj3w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2ow2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmd1b")
+}],
+"loop": true,
+"name": &"going_right",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_768o2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yacfl")
+animation = &"going_left"
+frame = 3
+frame_progress = 0.230051
